@@ -16,8 +16,10 @@ import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 import { Heading } from "@/components/heading";
 import { cn } from "@/lib/utils";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 const MusicPage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [music, setMusic] = useState<string>();
 
@@ -36,8 +38,10 @@ const MusicPage = () => {
       const response = await axios.post("/api/music", values);
       setMusic(response.data.audio)
       form.reset();
-    } catch (error) {
-      // TODO: Open Pro Modal
+    } catch (error: any) {
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
