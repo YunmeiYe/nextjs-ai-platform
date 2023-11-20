@@ -16,9 +16,7 @@ const DashboardLayout = async ({
     <div className='h-full relative'>
       {/* A sidebar that is hidden on mobile devices and visible on big screen */}
       <div className='hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 bg-gray-900'>
-        <div>
-          <Sidebar apiLimitCount={apiLimitCount} isPro={isPro} />
-        </div>
+        <Sidebar apiLimitCount={apiLimitCount} isPro={isPro} />
       </div>
       {/* The padding left 72 is to make sure that the main content won't be overlap by the sidebar*/}
       <main className='md:pl-72'>
