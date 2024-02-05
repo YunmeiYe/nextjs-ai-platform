@@ -22,8 +22,6 @@
 
 - Node.js version 18.x.x
 
-## Start the app
+## Get Started
 
-```bash
-npm run dev
-```
+View a demo of this app [here](https://genius-ai-tools.vercel.app/).
